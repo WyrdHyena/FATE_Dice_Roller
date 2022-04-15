@@ -3,7 +3,7 @@
 My goal for this project is to create a dice roller-app for the pen&paper roleplay-system FATE.
 
 
-# The basics: Rolling dice in FATE
+### The basics: Rolling dice in FATE
 
 Like most other role playing games, FATE uses dice rolls combined with modifiers to determine the outcome of actions performed by the characters ingame.
 The FATE-system utilizes special dice, also called "Fudge Dice", that have only three possible outcomes: 
@@ -13,7 +13,7 @@ Added to (or subtracted from) the dice roll are modifiers, which are determined 
 The combination of the modifiers and the roll is the value that determines the outcome of the performed ingame action.
 But: If the player isn't content with the outcome, he may spend ingame resources to either add +2 to the outcome or perform a re-roll (with the modifiers remaining the same).
 
-# What the app is supposed to do (when finished...):
+### What the app is supposed to do (when finished...):
 
 The FATE dice roller is supposed to do the following things:
 - On the starting screen, the player may enter a modifier (default: 0) and then press a button to roll the four dice.
