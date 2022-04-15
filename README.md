@@ -13,6 +13,7 @@ Added to (or subtracted from) the dice roll are modifiers, which are determined 
 The combination of the modifiers and the roll is the value that determines the outcome of the performed ingame action.
 But: If the player isn't content with the outcome, he may spend ingame resources to either add +2 to the outcome or perform a re-roll (with the modifiers remaining the same).
 
+
 ### What the app is supposed to do (when finished...):
 
 The FATE dice roller is supposed to do the following things:
