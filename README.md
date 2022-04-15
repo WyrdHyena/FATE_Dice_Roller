@@ -21,6 +21,6 @@ The FATE dice roller is supposed to do the following things:
 - The individual dice are displayed as images.
 - The outcome is calculated from the entered modifier and the dice roll and displayed within a text view.
 - Afer performing the initial roll, the player has three options (buttons):
-  -> Add +2: The outcome is raised by 2 and the new outcome is displayed. The dice don't change.
-  -> Re-roll: The dice are rolled anew, while the modifier stays the same. The new outcome is displayed.
-  -> New Roll: Set everything back to default.
+  - Add +2: The outcome is raised by 2 and the new outcome is displayed. The dice don't change.
+  - Re-roll: The dice are rolled anew, while the modifier stays the same. The new outcome is displayed.
+  - New Roll: Set everything back to default.
