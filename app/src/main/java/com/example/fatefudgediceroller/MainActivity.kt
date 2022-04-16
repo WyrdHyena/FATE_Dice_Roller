@@ -2,32 +2,35 @@ package com.example.fatefudgediceroller
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+
+var overallResult = 0
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        val rollButton: Button = findViewById(R.id.rollDiceButton) // This variable saves a reference to the button-object identified by its individual id.
+        val rollButton: Button =
+            findViewById(R.id.rollDiceButton) // This variable saves a reference to the button-object identified by its individual id.
         rollButton.setOnClickListener {
-            val rollResult = performRoll() // The val rollResult stores the result of the four dice as a List of Integers; this is necessary, because we want to use the result of the roll for multiple purposes. Without the variable, we had to re-call the function getting a new result every time.
 
-            val diceOneText: TextView = findViewById(R.id.textDiceOne)
-            diceOneText.text = rollResult[0].toString()
+            overallResult = 0 // Sets the overallResult back to 0 when the button is clicked; otherwise it would constantly be updated.
 
-            val diceTwo: TextView = findViewById(R.id.textDiceTwo)
-            diceTwo.text = rollResult[1].toString() // This line shows the List of the individual dice roll results.
+            val diceOneImage: ImageView = findViewById(R.id.diceImage1)
+            diceOneImage.setImageResource(performRoll())
 
-            val diceThree: TextView = findViewById(R.id.textDiceThree)
-            diceThree.text = rollResult[2].toString()
+            val diceTwoImage: ImageView = findViewById(R.id.diceImage2)
+            diceTwoImage.setImageResource(performRoll())
 
-            val diceFour: TextView = findViewById(R.id.textDiceFour)
-            diceFour.text = rollResult[3].toString()
+            val diceThreeImage: ImageView = findViewById(R.id.diceImage3)
+            diceThreeImage.setImageResource(performRoll())
 
-            val overallResult = rollResult.sum() // To get the end result of the roll, the rollResult-List's entries are summed up.
+            val diceFourImage: ImageView = findViewById(R.id.diceImage4)
+            diceFourImage.setImageResource(performRoll())
+
             val resultTextView: TextView = findViewById(R.id.textResult)
             resultTextView.text = when {
                 overallResult <= -2 -> "$overallResult: Terrible"
@@ -41,37 +44,19 @@ class MainActivity : AppCompatActivity() {
                 overallResult == 6 -> "6: Fantastic"
                 overallResult == 7 -> "7: Epic"
                 else -> "$overallResult: Legendary"
-            } // This shows the result sum of the roll in a text view.
+            }
         }
     }
 }
 
 
-fun performRoll(): List<Int> {
-    fun roll(): Int {
-        return (-1..1).random() // Generates a random Number between -1 and 1.
+fun performRoll(): Int {
+    val diceRoll = (-1..1).random() // Determine the outcome of a single dice (-1, 0 or +1).
+    overallResult += diceRoll // Updates the overallResult for each "dice", so the result of the roll can be calculated.
+    val diceImage = when (diceRoll) {
+        -1 -> R.drawable.fatedieminus
+        0 -> R.drawable.fatediezero
+        else -> R.drawable.fatedieplus
     }
-    val result = IntArray(4) {roll()}.asList() // Generates an array of four elements between -1 and 1, simulating the four dice rolled.
-    return result // The result is returned to the function, so the performRoll-function when called creates a list of 4 values between -1 and 1.
+    return diceImage
 }
-
-/*
-Um eine Liste mit vier random Werten zwischen -1 und 1 auszuspucken:
-
-fun main() {
-	var result = IntArray(4) {diceRoll()}.asList() // Creates a List of four Items between -1 and 1 using the diceRoll-function to simulate the rolling of the four dice.
-    var endSum = result.sum() // Sums up the values of the list to get the end result of the roll.
-    println(result)
-    println(endSum)
-}
-
-
-fun roll(): Int {
-     return (-1..1).random() // Generates a random Number between -1 and 1.
-}
-
- */
-
-/*
-TODO: Ein Button "Roll" der das Würfelergebnis als Array in einem Textfeld und die Gesamtsumme in einem anderen Textfeld ausspuckt.
- */
