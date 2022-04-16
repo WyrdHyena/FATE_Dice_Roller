@@ -9,7 +9,7 @@ Like most other role playing games, FATE uses dice rolls combined with modifiers
 The FATE-system utilizes special dice, also called "Fudge Dice", that have only three possible outcomes: 
 Two sides are marked with a +, two sides show a - and the last two sides are blank, therefore generating the values of -1, 0 and +1.
 In FATE, the player always rolls four dice, which means the result of the dice roll lies between -4 and +4. 
-Added to (or subtracted from) the dice roll are modifiers, which are determined accoirding to several game rules before the roll is made.
+Added to (or subtracted from) the dice roll are modifiers, which are determined according to game rules before the roll is made.
 The combination of the modifiers and the roll is the value that determines the outcome of the performed ingame action.
 But: If the player isn't content with the outcome, he may spend ingame resources to either add +2 to the outcome or perform a re-roll (with the modifiers remaining the same).
 
